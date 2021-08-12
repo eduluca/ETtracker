@@ -9,6 +9,8 @@ import UIKit
 import CoreMotion
 import MessageUI
 
+var date = NSDate()
+
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     public var actions = ["jump","run","3","4","5"]
@@ -137,7 +139,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     
-    
+func getTimeFromDate(_ date: NSDate)-> Double {
+    var timeInSeconds: Double = 1
+    timeInSeconds = date.timeIntervalSinceNow
+    print(timeInSeconds)
+    return timeInSeconds
+  }
    
 
 func startAccelerometers() {
@@ -157,12 +164,13 @@ func startAccelerometers() {
                let x = data.acceleration.x
                let y = data.acceleration.y
                let z = data.acceleration.z
+                
                 //let date = Date()
                 //let tStamp = date.timeIntervalSinceNow * -1
                 
                 //or
                 
-                //
+                //var timePassed = getTimeFromDate(date)
             
                 let currentDateTime = Date()
                 let formatter = DateFormatter()
